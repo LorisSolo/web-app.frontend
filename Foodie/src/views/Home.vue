@@ -2,120 +2,8 @@
     <navBar></navBar>
 
 
-    <h1>Odabir namjernica</h1>
-    <div class="card c-namjernice" style="width: 50rem;">
-        <div class="card-body">
-
-            <h5 class="card-title">Card title</h5>
-            <div class="namjernice">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Piletina" id="flexCheckDefault" name="test[]">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Piletina
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Teletina" id="flexCheckDefault" name="test[]">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Teletina
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Svinjetina" id="flexCheckDefault" name="test[]">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Svinjetina
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Riža" id="flexCheckDefault" name="test[]">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Riža
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="test[]">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="test[]">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-
-                </div>
-
-
-
-            </div>
-
-        </div>
-        <button class="btn btn-primary batun" type="submit" id="batun" style="background-color:brown">Button</button>
-    </div>
-
-    <h2 style="margin-left: 25px; ">Recepti</h2>
-    <hr>
-
-
-
-
-
+    <h1>Recepti</h1>
+  
 
 
     <div class="recepti">
@@ -230,14 +118,6 @@ export default {
 
 
 </script>
-
-
-
-
-
-
-
-
 
 
 
