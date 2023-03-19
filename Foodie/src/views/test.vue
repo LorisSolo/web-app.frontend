@@ -38,6 +38,7 @@
   </script>
 -->
 <template>
+  <navBar></navBar>
   <div>
     <button @click="saveButtonValue('banana')">Button 1</button>
     <button @click="saveButtonValue('kruska')">Button 2</button>
@@ -63,8 +64,13 @@
 <script>
 //import jwt from 'jsonwebtoken'; error
 import VueJwtDecode from 'vue-jwt-decode'
-import Cookies from 'js-cookie'// novo
+import Cookies from 'js-cookie'
+import navBar from '../components/navBar.vue'
 export default {
+  components:{
+    navBar
+  },
+
   data() {
     return {
       userItems: [],
