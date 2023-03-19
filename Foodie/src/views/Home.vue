@@ -9,7 +9,7 @@
     <div class="recepti">
 
         <div class="card r-card" style="width: 18rem;" v-for="recept in recepti">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            
             <div class="card-body">
                 <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
                 <h5 class="card-title">{{ recept.title }}</h5>

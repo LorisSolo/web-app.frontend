@@ -39,12 +39,53 @@
 -->
 <template>
   <navBar></navBar>
-  <div>
-    <button @click="saveButtonValue('banana')">Button 1</button>
-    <button @click="saveButtonValue('kruska')">Button 2</button>
+  <div class="foodItems">
+    <div class="itemButtons1">
+      <h3 style="text-align: center;">Meso</h3>
+      <hr>
+      <button class="btn myButton " @click="saveButtonValue('teletina')">teletina</button>
+      <button class="btn myButton " @click="saveButtonValue('junetina')">junetina</button>
+      <button class="btn myButton " @click="saveButtonValue('svinjetina')">svinjetina</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <!--
+  <button @click="saveButtonValue('kruska')">Button 2</button>
     <button @click="saveButtonValue('secer')">Button 2</button>
     <button @click="saveButtonValue('paprika')">Paprika</button>
     <button @click="saveButtonValue('šljiva')">šljiva</button>
+      -->
+  
+    </div>
+    <div class="itemButtons1">
+      
+        <h3>Povrće</h3>
+      <hr>
+      
+      
+      <button class="btn myButton " @click="saveButtonValue('teletina')">teletina</button>
+      <button class="btn myButton " @click="saveButtonValue('junetina')">junetina</button>
+      <button class="btn myButton " @click="saveButtonValue('svinjetina')">svinjetina</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+    </div>
+    <div class="itemButtons1">
+      <h3 style="text-align: center;">Začini</h3>
+      <hr>
+      <button class="btn myButton " @click="saveButtonValue('teletina')">teletina</button>
+      <button class="btn myButton " @click="saveButtonValue('junetina')">junetina</button>
+      <button class="btn myButton " @click="saveButtonValue('svinjetina')">svinjetina</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+   
+    </div>
+  </div>
+    
     <ul>
       <li v-for="item in userItems">{{ item }}</li>
     </ul>
@@ -52,7 +93,7 @@
   {{ item }}
   <button @click="deleteItem(item)">Delete</button>
 </li>
-  </div>
+  
   <div>
         <h2>Matched Recipes</h2>
         <ul>
@@ -179,5 +220,7 @@ export default {
 
 
 </script>
-
+<style scoped>
+@import '../assets/myStyle.css';
+</style>
 <!--${ email }-->
