@@ -6,23 +6,6 @@
         <h1>Recepti</h1>
 
 
-        <!--
- <div class="recepti">
-
-            <div class="card r-card" style="width: 18rem;" v-for="recept in recepti">
-
-                <div class="card-body">
-                    <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
-                    <h5 class="card-title">{{ recept.title }}</h5>
-                    <p class="card-text"> {{ recept.description }}</p>
-                    <button
-                        @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)">Go
-                        somewhere</button>
-
-                </div>
-            </div>
-        </div>
--->
 
 
         <div class="content">
@@ -30,11 +13,7 @@
                 <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
                 <h5 class="cardText">{{ recept.title }}</h5>
 
-<!--
-  <button
-                    @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)">Go
-                    somewhere</button>
--->
+
               
 </a>
         </div>
@@ -50,7 +29,7 @@
 import Cookies from 'js-cookie'
 import navBar from '../components/navBar.vue'
 
-import { store } from '../store' // DODAN STORE ZA GLOBALNe VARIJABLE
+import { store } from '../store' 
 
 export default {
     components: {
@@ -117,7 +96,7 @@ export default {
 
 
 
-            this.$router.push('/recept'); // poslat ce te na rutu /recept
+            this.$router.push('/recept'); 
         },
     },
     beforeMount() {

@@ -126,6 +126,7 @@ h1 {
 
 .bcColor {
     background-color: rgb(245, 245, 245);
+    min-height: 100vh;
 }
 
 .content {
@@ -151,6 +152,7 @@ h1 {
     flex-direction: column;
 
 }
+
 .itemCard:hover {
     scale: 1.1;
 }
@@ -169,13 +171,54 @@ h1 {
     align-self: center;
     font-weight: bold;
     font-size: 25px;
+    
 }
 
-.myBtn{
+.myBtn {
     cursor: pointer;
     text-decoration: none;
     border: 1px solid gray;
     width: max-content;
     padding: 5px 20px;
     border-radius: 15px;
+}
+
+.uploadContent {
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: white;
+    width: 950px;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.uploadContent input {
+    padding: 5px;
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+.uploadContent textarea {
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+.uploadContent .myBtn {
+    align-self: flex-end;
+}
+.myBtn:hover {
+    scale: 1.1;
+    background-color: gray;
+    color: white;
+    border: none;
 }

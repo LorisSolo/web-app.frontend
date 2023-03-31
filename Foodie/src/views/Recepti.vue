@@ -57,29 +57,20 @@ export default {
 <template>
     <div class="bcColor">
         <navBar></navBar>
-    <h1>shhssh</h1>
+  
 
-   
-   <div class="containerr">
-        <div class="input-group text_box">
-            
-            <input  placeholder="Naslov" class="form-control" aria-label="With textarea" v-model="title" style="margin-top:5px">
-        </div>
-        <div class="input-group text_box">
-            
-            <textarea placeholder="Sastojci" class="form-control" aria-label="With textarea" v-model="ingredients"></textarea>
-        </div>
-        <div class="input-group text_box" style="height:100px;width: 550px;">
-            
-            <textarea placeholder="Opis" class="form-control" aria-label="With textarea" v-model="description"></textarea>
-        </div>
-        <div class="input-group text_box">
-      
+  
+    <div class="uploadContent">
+        <h4>Pošaljite svoj recept</h4>
+        <input type="text" placeholder="Naslov" v-model="title">
+        <input type="text" placeholder="Ingredients" v-model="ingredients">
+
+        <textarea name="" id="" cols="30" rows="10" placeholder="Opis" v-model="description"></textarea>
+    
+        <a @click="dodajRecept()" class="myBtn">
+            Upload
+        </a>
     </div>
-        <button type="submit" class="btn btn-primary" @click="dodajRecept()">Submit</button>
-
-    </div>
-
   
  
 
