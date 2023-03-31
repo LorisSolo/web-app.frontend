@@ -1,42 +1,4 @@
 
-<!--
-<template>
-    <div>
-      <button @click="saveButtonValue('banana')">Button 1</button>
-      <button @click="saveButtonValue('kruska')">Button 2</button>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    methods: {
-      saveButtonValue(buttonValue) {
-        const email = 'pls@radi'; // replace with actual email
-        fetch(`http://localhost:3000/api/v1/recepti/updateUser/MichaelReeves@1`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ buttonValue })
-        })
-          .then(response => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error('Network response was not ok.');
-            }
-          })
-          .then(data => {
-            console.log(data);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-      }
-    }
-  }
-  </script>
--->
 <template>
   <navBar></navBar>
   <div class="foodItems">
@@ -60,17 +22,17 @@
     </div>
     <div class="itemButtons1">
       
-        <h3>Povrće</h3>
+        <h3 style="text-align: center;">Povrće</h3>
       <hr>
       
       
       <button class="btn myButton " @click="saveButtonValue('teletina')">teletina</button>
       <button class="btn myButton " @click="saveButtonValue('junetina')">junetina</button>
       <button class="btn myButton " @click="saveButtonValue('svinjetina')">svinjetina</button>
-      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
-      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
-      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
-      <button class="btn myButton " @click="saveButtonValue('banana')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('kruska')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('aaa')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('bsda')">Button 1</button>
+      <button class="btn myButton " @click="saveButtonValue('bdasda')">Button 1</button>
     </div>
     <div class="itemButtons1">
       <h3 style="text-align: center;">Začini</h3>
@@ -85,14 +47,21 @@
    
     </div>
   </div>
-    
-    <ul>
+    <!--
+<ul>
       <li v-for="item in userItems">{{ item }}</li>
     </ul>
-    <li v-for="item in userItems">
+    -->
+    
+<div class="test">
+  <div class="items">
+  <h2 style="margin: 10px; text-align: center;" >Vaši sastojci</h2>
+  <li style="margin: 10px; text-align: center;" v-for="item in userItems">
   {{ item }}
-  <button @click="deleteItem(item)">Delete</button>
+  <button class="btn myButton" @click="deleteItem(item)">Delete</button>
 </li>
+</div>
+   
   
   <div>
         <h2>Matched Recipes</h2>
@@ -100,6 +69,8 @@
             <li v-for="recept in matchedRecepti" >{{ recept.title }}</li>
         </ul>
     </div>
+</div>
+
 </template>
 
 <script>
@@ -107,10 +78,12 @@
 import VueJwtDecode from 'vue-jwt-decode'
 import Cookies from 'js-cookie'
 import navBar from '../components/navBar.vue'
+import { defineComponent } from 'vue';
 export default {
   components:{
-    navBar
-  },
+    navBar,
+    defineComponent
+},
 
   data() {
     return {

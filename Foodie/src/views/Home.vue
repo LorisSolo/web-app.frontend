@@ -1,25 +1,46 @@
 <template>
-    <navBar></navBar>
+    <div class="bcColor">
+        <navBar></navBar>
 
 
-    <h1>Recepti</h1>
-  
+        <h1>Recepti</h1>
 
 
-    <div class="recepti">
+        <!--
+ <div class="recepti">
 
-        <div class="card r-card" style="width: 18rem;" v-for="recept in recepti">
-            
-            <div class="card-body">
-                <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
-                <h5 class="card-title">{{ recept.title }}</h5>
-                <p class="card-text"> {{ recept.description }}</p>
-                <button
-                    @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)">Go
-                    somewhere</button>
+            <div class="card r-card" style="width: 18rem;" v-for="recept in recepti">
 
+                <div class="card-body">
+                    <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
+                    <h5 class="card-title">{{ recept.title }}</h5>
+                    <p class="card-text"> {{ recept.description }}</p>
+                    <button
+                        @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)">Go
+                        somewhere</button>
+
+                </div>
             </div>
         </div>
+-->
+
+
+        <div class="content">
+            <a @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)" class="itemCard" v-for="recept in recepti">
+                <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
+                <h5 class="cardText">{{ recept.title }}</h5>
+
+<!--
+  <button
+                    @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)">Go
+                    somewhere</button>
+-->
+              
+</a>
+        </div>
+
+
+
     </div>
 </template>
 
@@ -91,8 +112,8 @@ export default {
             store.setDescription(description);
 
             store.setPicture(picture);
-            
-            
+
+
 
 
 

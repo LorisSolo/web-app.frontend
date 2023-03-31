@@ -55,9 +55,12 @@ export default {
 
 </script>
 <template>
-    <navBar></navBar>
+    <div class="bcColor">
+        <navBar></navBar>
     <h1>shhssh</h1>
-    <div class="containerr">
+
+   
+   <div class="containerr">
         <div class="input-group text_box">
             
             <input  placeholder="Naslov" class="form-control" aria-label="With textarea" v-model="title" style="margin-top:5px">
@@ -76,6 +79,13 @@ export default {
         <button type="submit" class="btn btn-primary" @click="dodajRecept()">Submit</button>
 
     </div>
+
+  
+ 
+
+ 
+    </div>
+    
 </template>
 
 <style scoped>
