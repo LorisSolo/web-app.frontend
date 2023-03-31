@@ -1,26 +1,34 @@
 <template>
-    <img v-if="!noImage" :src="picture" style="width: 300px; height: 300px;" />
+<div class="bcColor">
+    <navBar></navBar>
 
-
-
-    <!-- FILE SELECTOR -->
-    <div class="m-2 mt-3" style="display: flex; align-items: center;">
-        <div class="text-warning">PNG required</div>
-        <p>Odaberi sliku</p>
+    <div class="viewRecipe">
+        
         <input style="font-size: 14px;" type="file" ref="file" accept="image/*" @change="" />
+        <a @click="uploadSlike()" class="myBtn">Promjeni sliku</a>
 
-        <button class="btn btn-info py-0 mt-2" style="font-size: 14px; color: white;" @click="uploadSlike()">Promjeni sliku
-            sliku</button>
+        <img v-if="!noImage" :src="picture" style="width: 300px; height: 300px;" />
+
+        <h1>{{ title }}</h1>
+
+        <div class="ingredient-list">
+            <div class="ingredient" li v-for="ingredient in ingredients">
+                {{ ingredient }}
+
+            </div>
+
+        </div>
+
+        <p>
+            {{ description }}
+        </p>
+
+
     </div>
-
-
-
-    <p class="card-text"> {{ title }}</p>
-    <li v-for="ingredient in ingredients">{{ ingredient }}</li>
-    <p class="card-text"> {{ description }}</p>
+</div>
 </template>
 <script>
-import Cookies from 'js-cookie' // novo
+
 import navBar from '../components/navBar.vue'
 import { store } from '../store'
 export default {
@@ -32,7 +40,7 @@ export default {
             noImage: false,
             id: store.id,
             title: store.title,
-            ingredients: store.ingredients, // 
+            ingredients: store.ingredients, 
             description: store.description,
             picture: store.picture
         }
@@ -69,25 +77,8 @@ export default {
             this.noImage = true;
         }
 
-        /*
-        if (this.picture != "") {
-            this.noImage = true;
-        } 
-        */
 
-        /*
-        try {
-            if (this.picture.image.data) {
-                let img = btoa(
-                    String.fromCharCode(...new Uint8Array(this.picture.image.data.data))
-                );
-                this.picture = `data:image/png;base64,${img}`;
-            }
-        } catch (e) {
-            this.noImage = true;
-        }
-        */
-                
+
     }
 
 
@@ -97,3 +88,7 @@ export default {
 
 
 </script>
+
+<style scoped>
+@import '../assets/myStyle.css';
+</style>

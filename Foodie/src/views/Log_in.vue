@@ -1,6 +1,6 @@
 <template>
-  <!--treba dodat background boju-->
-  <div style="background-color: aqua;">
+  
+ 
 
 
     <form class="main-box">
@@ -31,7 +31,7 @@
       </lable>
 
     </div>
-  </div>
+ 
 </template>
 
 
@@ -40,79 +40,7 @@
 </style>
 
 <script>
-/*
-export default {
-    data() {
-        return {
-            
-            email: "",
-            password:"",
 
-            
-        }
-    },
-
-    methods: {
-
-       
-        async provjeraUsera() {
-            let json = { "email": this.email, "password":this.password }
-
-            await fetch('http://localhost:3000/api/v1/auth/login', {
-                method: 'POST',
-                credentials: 'include',
-                body: JSON.stringify(json),
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                                   
-                                    
-                },
-                
-                
-            }
-            ).then(res => res.json()).then( data => {
-                console.log(data)}).catch((err) => {console.log(err)})
-           
-            
-        }
-    }
-}
-*/
-
-/*
-localStorage
-export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-    }
-  },
-  methods: {
-    async provjeraUsera() {
-      let json = { "email": this.email, "password": this.password };
-
-      await fetch('http://localhost:3000/api/v1/auth/login', {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify(json),
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-        .then(res => res.json())
-        .then(data => {
-          localStorage.setItem("token", data.token);
-          console.log(data);
-          this.$router.push('/');
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-  }
-}
-*/
 
 export default {
   data() {
