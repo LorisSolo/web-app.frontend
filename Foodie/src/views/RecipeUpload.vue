@@ -1,5 +1,5 @@
 <script>
-import Cookies from 'js-cookie' // novo
+import Cookies from 'js-cookie' 
 import navBar from '../components/navBar.vue'
 export default {
     components: {
@@ -33,18 +33,15 @@ export default {
                 },
                 withCredentials: true
                 
-            });
+            })
 
             } catch (error) {
                 console.error('Error:', error);
                 this.$message.error(error.message || 'Network response was not ok.');
-            }
+            } 
             
         },
-        async uploadImg(){
-
-        }
-        
+               
      
 
     }
@@ -63,6 +60,7 @@ export default {
     <div class="uploadContent">
         <h4>Pošaljite svoj recept</h4>
         <input type="text" placeholder="Naslov" v-model="title">
+        <span>Sintaksa za slanje sastojaka item1 " " item2 primjer: kruške banane</span>
         <input type="text" placeholder="Ingredients" v-model="ingredients">
 
         <textarea name="" id="" cols="30" rows="10" placeholder="Opis" v-model="description"></textarea>

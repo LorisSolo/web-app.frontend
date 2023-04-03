@@ -9,7 +9,7 @@
 
 
         <div class="content">
-            <a @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)" class="itemCard" v-for="recept in recepti">
+            <a style= "color: black;" @click="toRecepti(recept._id, recept.title, recept.ingredients, recept.description, recept.picture)" class="itemCard" v-for="recept in recepti">
                 <img v-if="recept.picture" :src="recept.picture" style="width: 150px; height: 150px;" />
                 <h5 class="cardText">{{ recept.title }}</h5>
 

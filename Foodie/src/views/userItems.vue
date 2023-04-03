@@ -1,0 +1,184 @@
+
+<template>
+  <div class="bcColor">
+
+
+    <navBar></navBar>
+
+
+    <div class="choose-ingredients">
+
+      <div class="category-card">
+        <h1>Meat</h1>
+
+        <div class="buttons">
+          <a class="myBtn" @click="saveButtonValue('teletina')">teletina</a>
+          <a class="myBtn" @click="saveButtonValue('junetina')">junetina</a>
+          <a class="myBtn" @click="saveButtonValue('svinjetina')">svinjetina</a>
+          <a class="myBtn" @click="saveButtonValue('riba')">riba</a>
+          <a class="myBtn" @click="saveButtonValue('piletina')">piletina</a>
+          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+
+        </div>
+
+      </div>
+
+      <div class="category-card">
+        <h1>Vegetables</h1>
+
+        <div class="buttons">
+          <a class="myBtn" @click="saveButtonValue('špinat')">špinat</a>
+          <a class="myBtn" @click="saveButtonValue('češnjak')">češnjak</a>
+          <a class="myBtn" @click="saveButtonValue('krumpir')">krumpir</a>
+          <a class="myBtn" @click="saveButtonValue('brokula')">brokula</a>
+          <a class="myBtn" @click="saveButtonValue('blitva')">blitva</a>
+          <a class="myBtn" @click="saveButtonValue('peršin')">peršin</a>
+          <a class="myBtn" @click="saveButtonValue('luk')">luk</a>
+          <a class="myBtn" @click="saveButtonValue('mrkva')">mrkva</a>
+          
+
+        </div>
+      </div>
+
+      <div class="category-card">
+        <h1>Ostalo</h1>
+
+        <div class="buttons">
+
+          <a class="myBtn" @click="saveButtonValue('ulje')">ulje</a>
+          <a class="myBtn" @click="saveButtonValue('sol')">sol</a>
+          <a class="myBtn" @click="saveButtonValue('papar')">papar</a>
+          <a class="myBtn" @click="saveButtonValue('vegeta')">vegeta</a>
+          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="item-recepie-container">
+      <div class="item-card">
+        <h2 >Vaši sastojci</h2>
+        <li  v-for="item in userItems">
+          {{ item }}
+          <a class="myBtn" @click="deleteItem(item)">Delete</a>
+        </li>
+      </div>
+
+
+      <div class="item-card">
+        <h2>Matched Recipes</h2>
+        <ul>
+          <li v-for="recept in matchedRecepti">{{ recept.title }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+import VueJwtDecode from 'vue-jwt-decode'
+import Cookies from 'js-cookie'
+import navBar from '../components/navBar.vue'
+import { defineComponent } from 'vue';
+export default {
+  components: {
+    navBar,
+    defineComponent
+  },
+
+  data() {
+    return {
+      userItems: [],
+      matchedRecepti: []
+
+    };
+  },
+  methods: {
+
+    async saveButtonValue(buttonValue) {
+      const token = Cookies.get('token')
+      console.log(Cookies.get('token'))
+      const decodedToken = VueJwtDecode.decode(token)
+      console.log(decodedToken)
+      const userEmail = decodedToken.email;
+
+
+      try {
+        await fetch(`http://localhost:3000/api/v1/recepti/updateUser/${userEmail}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          },
+          withCredentials: true,
+          body: JSON.stringify({ buttonValue })
+        })
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    },
+    async deleteItem(item) {
+      const token = Cookies.get('token')
+      const decodedToken = VueJwtDecode.decode(token)
+      const userEmail = decodedToken.email;
+
+      try {
+        await fetch(`http://localhost:3000/api/v1/recepti/deleteItem/${userEmail}/${item}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          },
+          withCredentials: true
+        })
+
+
+        const index = this.userItems.indexOf(item)
+        if (index > -1) {
+          this.userItems.splice(index, 1)
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  },
+  async created() {
+
+
+    const token = Cookies.get('token')
+    const decodedToken = VueJwtDecode.decode(token)
+    const userEmail = decodedToken.email;
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/v1/recepti/getUserItems/${userEmail}`);
+      if (response.ok) {
+        const data = await response.json();
+        this.userItems = data;
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+    const otherResponse = await fetch(`http://localhost:3000/api/v1/recepti/getUserRecepti/${userEmail}`);
+    const data = await otherResponse.json();
+    this.matchedRecepti = data;
+
+  },
+
+};
+
+
+
+
+</script>
+<style scoped>
+@import '../assets/myStyle.css';
+</style>

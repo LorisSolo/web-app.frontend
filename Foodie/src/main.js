@@ -5,7 +5,7 @@ import VueCookies from 'vue-cookies';
 
 
 
-//import './assets/main.css'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 

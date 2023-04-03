@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Recepti from '../views/Recepti.vue'
+import RecipeUpload from '../views/RecipeUpload.vue'
 import Log_in from '../views/Log_in.vue'
 import Sign_up from '../views/Sign_up.vue'
-import test from '../views/test.vue'
-import Recept from '../views/Recept.vue'
+import userItems from '../views/userItems.vue'
+import Recipe from '../views/Recipe.vue'
 import { isAuthenticated } from './helpers'
 
 const router = createRouter({
@@ -17,9 +17,9 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/recepti',
-      name: 'recepti',
-      component: Recepti,
+      path: '/upload',
+      name: 'upload',
+      component: RecipeUpload,
      meta: { requiresAuth: true }
     },
     {
@@ -35,16 +35,16 @@ const router = createRouter({
     
     },
     {
-      path: '/test',
-      name: 'test',
-      component: test,
+      path: '/myFridge',
+      name: 'myFridge',
+      component: userItems,
       meta: { requiresAuth: true }
     
     },
     {
-      path: '/recept',
-      name: 'recept',
-      component: Recept,
+      path: '/recipe',
+      name: 'recipe',
+      component: Recipe,
       meta: { requiresAuth: true }
     
     },
