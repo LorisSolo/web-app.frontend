@@ -1,36 +1,38 @@
 <template>
-<div class="bcColor">
-    <navBar></navBar>
+    <div class="bcColor">
+        <navBar></navBar>
 
-    <div class="viewRecipe">
-        
-        <input style="font-size: 14px;" type="file" ref="file" accept="image/*" @change="" />
-        <a @click="uploadSlike()" class="myBtn">Promjeni sliku</a>
+        <div class="viewRecipe">
 
-        <img v-if="!noImage" :src="picture" style="width: 300px; height: 300px;" />
+            <input style="font-size: 14px;" type="file" ref="file" accept="image/*" @change="" />
+            <a @click="uploadSlike()" class="myBtn">Promjeni sliku</a>
 
-        <h1>{{ title }}</h1>
+            <img v-if="!noImage" :src="picture" style="width: 300px; height: 300px;" />
 
-        <div class="ingredient-list">
-            <div class="ingredient" li v-for="ingredient in ingredients">
-                {{ ingredient }}
+            <h1>{{ title }}</h1>
+
+            <div class="ingredient-list">
+                <div class="ingredient" li v-for="ingredient in ingredients">
+                    {{ ingredient }}
+
+                </div>
 
             </div>
 
+            <p>
+                {{ description }}
+            </p>
+
+
         </div>
-
-        <p>
-            {{ description }}
-        </p>
-
-
     </div>
-</div>
 </template>
 <script>
 
+import Cookies from 'js-cookie'
 import navBar from '../components/navBar.vue'
 import { store } from '../store'
+import VueJwtDecode from 'vue-jwt-decode'
 export default {
     components: {
         navBar
@@ -40,7 +42,7 @@ export default {
             noImage: false,
             id: store.id,
             title: store.title,
-            ingredients: store.ingredients, 
+            ingredients: store.ingredients,
             description: store.description,
             picture: store.picture
         }
@@ -49,7 +51,12 @@ export default {
     methods: {
 
 
+
         async uploadSlike() {
+            const token = Cookies.get('token')
+            console.log(Cookies.get('token'))
+            const decodedToken = VueJwtDecode.decode(token)
+            const userEmail = decodedToken.email;
 
             const imageData = new FormData();
             const fileField = document.querySelector('input[type="file"]');
@@ -59,7 +66,11 @@ export default {
 
             await fetch(`http://localhost:3000/api/v1/recepti/editPicture/${this.id}`, {
                 method: 'PATCH', credentials: 'include',
-                body: imageData
+                body: imageData,
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                withCredentials: true
             }).then(() => {
                 this.$router.push('/');
             });

@@ -9,7 +9,7 @@
     <div class="choose-ingredients">
 
       <div class="category-card">
-        <h1>Meat</h1>
+        <h1>Meso</h1>
 
         <div class="buttons">
           <a class="myBtn" @click="saveButtonValue('teletina')">teletina</a>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="category-card">
-        <h1>Vegetables</h1>
+        <h1>povrće</h1>
 
         <div class="buttons">
           <a class="myBtn" @click="saveButtonValue('špinat')">špinat</a>
@@ -36,7 +36,7 @@
           <a class="myBtn" @click="saveButtonValue('peršin')">peršin</a>
           <a class="myBtn" @click="saveButtonValue('luk')">luk</a>
           <a class="myBtn" @click="saveButtonValue('mrkva')">mrkva</a>
-          
+
 
         </div>
       </div>
@@ -62,8 +62,8 @@
 
     <div class="item-recepie-container">
       <div class="item-card">
-        <h2 >Vaši sastojci</h2>
-        <li  v-for="item in userItems">
+        <h2>Vaši sastojci</h2>
+        <li v-for="item in userItems">
           {{ item }}
           <a class="myBtn" @click="deleteItem(item)">Delete</a>
         </li>
@@ -107,18 +107,20 @@ export default {
       const decodedToken = VueJwtDecode.decode(token)
       console.log(decodedToken)
       const userEmail = decodedToken.email;
+      console.log(userEmail)
 
 
       try {
-        await fetch(`http://localhost:3000/api/v1/recepti/updateUser/${userEmail}`, {
+        await fetch(`http://localhost:3000/api/v1/recepti/user/${userEmail}`, {
           method: 'PATCH',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
           },
           withCredentials: true,
           body: JSON.stringify({ buttonValue })
-        })
+        }).then(console.log("radiddd"))
       } catch (error) {
         console.error('Error:', error);
       }
@@ -129,8 +131,9 @@ export default {
       const userEmail = decodedToken.email;
 
       try {
-        await fetch(`http://localhost:3000/api/v1/recepti/deleteItem/${userEmail}/${item}`, {
+        await fetch(`http://localhost:3000/api/v1/recepti/item/${userEmail}/${item}`, {
           method: 'DELETE',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
@@ -146,7 +149,8 @@ export default {
       } catch (error) {
         console.error('Error:', error);
       }
-    }
+    },
+
   },
   async created() {
 
@@ -154,9 +158,17 @@ export default {
     const token = Cookies.get('token')
     const decodedToken = VueJwtDecode.decode(token)
     const userEmail = decodedToken.email;
+    console.log(userEmail);
 
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/recepti/getUserItems/${userEmail}`);
+      const response = await fetch(`http://localhost:3000/api/v1/recepti/userItems/${userEmail}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Authorization': 'Bearer ' + token
+        },
+        withCredentials: true
+      }).then(console.log("ne radi"));
       if (response.ok) {
         const data = await response.json();
         this.userItems = data;
@@ -167,11 +179,19 @@ export default {
       console.error('Error:', error);
     }
 
-    const otherResponse = await fetch(`http://localhost:3000/api/v1/recepti/getUserRecepti/${userEmail}`);
+    const otherResponse = await fetch(`http://localhost:3000/api/v1/recepti/userRecipe/${userEmail}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      withCredentials: true
+    });
     const data = await otherResponse.json();
     this.matchedRecepti = data;
 
   },
+
 
 };
 

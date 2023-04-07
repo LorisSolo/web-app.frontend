@@ -28,6 +28,7 @@
 <script>
 import Cookies from 'js-cookie'
 import navBar from '../components/navBar.vue'
+import VueJwtDecode from 'vue-jwt-decode'
 
 import { store } from '../store' 
 
@@ -42,10 +43,15 @@ export default {
     },
 
     methods: {
+        
         async dohvatiRecepte() {
             try {
+
                 const token = Cookies.get('token')
                 console.log(Cookies.get('token'))
+                const decodedToken = VueJwtDecode.decode(token)
+                const userEmail = decodedToken.email;
+                
                 const response = await fetch('http://localhost:3000/api/v1/recepti', {
                     method: 'GET',
                     credentials: 'include',
@@ -96,7 +102,7 @@ export default {
 
 
 
-            this.$router.push('/recept'); 
+            this.$router.push('/recipe'); 
         },
     },
     beforeMount() {
@@ -104,7 +110,7 @@ export default {
         store.setTitle("");
         store.setIngredients("");
         store.setDescription("");
-        // store.setPicture("");
+        
     },
 
 

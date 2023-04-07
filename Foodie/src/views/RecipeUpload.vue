@@ -1,5 +1,6 @@
 <script>
 import Cookies from 'js-cookie' 
+import VueJwtDecode from 'vue-jwt-decode'
 import navBar from '../components/navBar.vue'
 export default {
     components: {
@@ -11,6 +12,7 @@ export default {
             title: "",
             description: "",
             ingredients: "",
+            userEmail: ""
         }
     },
 
@@ -18,11 +20,14 @@ export default {
 
         async dodajRecept() {
             try{
-                const token = Cookies.get('token') 
-            console.log(Cookies.get('token')) 
-            let json = { "title": this.title, "description": this.description, "ingredients": this.ingredients.split(" ") }
+            const token = Cookies.get('token') 
+            const decodedToken = VueJwtDecode.decode(token)
+            const userEmail = decodedToken.email;
+            console.log(decodedToken)
+            console.log(userEmail) 
+            let json = { "title": this.title, "description": this.description, "ingredients": this.ingredients.split(" "), userEmail: userEmail }
 
-            await fetch('http://localhost:3000/api/v1/recepti/dodajRecept', {
+            await fetch('http://localhost:3000/api/v1/recepti/recipe', {
                 method: 'POST',
                 body: JSON.stringify(json),
                 
