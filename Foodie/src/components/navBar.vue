@@ -25,8 +25,8 @@
                       </li>
                       </ul>
                   <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <a class="btn btn-outline-info" type="submit" @click="logout" >Logout</a>
+                     
+                      <a class="myBtn" type="submit" @click="logout" >Logout</a>
                   </form>
               </div>
           </div>

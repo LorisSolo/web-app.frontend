@@ -9,7 +9,7 @@
     <div class="choose-ingredients">
 
       <div class="category-card">
-        <h1>Meso</h1>
+        <h1>Meso i tjestenine</h1>
 
         <div class="buttons">
           <a class="myBtn" @click="saveButtonValue('teletina')">teletina</a>
@@ -17,7 +17,7 @@
           <a class="myBtn" @click="saveButtonValue('svinjetina')">svinjetina</a>
           <a class="myBtn" @click="saveButtonValue('riba')">riba</a>
           <a class="myBtn" @click="saveButtonValue('piletina')">piletina</a>
-          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+          <a class="myBtn" @click="saveButtonValue('rezanci')">rezanci</a>
           <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
 
         </div>
@@ -31,11 +31,12 @@
           <a class="myBtn" @click="saveButtonValue('špinat')">špinat</a>
           <a class="myBtn" @click="saveButtonValue('češnjak')">češnjak</a>
           <a class="myBtn" @click="saveButtonValue('krumpir')">krumpir</a>
-          <a class="myBtn" @click="saveButtonValue('brokula')">brokula</a>
           <a class="myBtn" @click="saveButtonValue('blitva')">blitva</a>
           <a class="myBtn" @click="saveButtonValue('peršin')">peršin</a>
           <a class="myBtn" @click="saveButtonValue('luk')">luk</a>
           <a class="myBtn" @click="saveButtonValue('mrkva')">mrkva</a>
+          <a class="myBtn" @click="saveButtonValue('rajčica')">rajčica</a>
+          <a class="myBtn" @click="saveButtonValue('tikvica')">tikvica</a>
 
 
         </div>
@@ -71,7 +72,7 @@
 
 
       <div class="item-card">
-        <h2>Matched Recipes</h2>
+        <h2>Recepti koje možete raditi</h2>
         <ul>
           <li v-for="recept in matchedRecepti">{{ recept.title }}</li>
         </ul>
@@ -103,12 +104,9 @@ export default {
 
     async saveButtonValue(buttonValue) {
       const token = Cookies.get('token')
-      console.log(Cookies.get('token'))
       const decodedToken = VueJwtDecode.decode(token)
-      console.log(decodedToken)
       const userEmail = decodedToken.email;
-      console.log(userEmail)
-
+  
 
       try {
         await fetch(`http://localhost:3000/api/v1/recepti/user/${userEmail}`, {
@@ -120,7 +118,7 @@ export default {
           },
           withCredentials: true,
           body: JSON.stringify({ buttonValue })
-        }).then(console.log("radiddd"))
+        })
       } catch (error) {
         console.error('Error:', error);
       }
@@ -158,7 +156,7 @@ export default {
     const token = Cookies.get('token')
     const decodedToken = VueJwtDecode.decode(token)
     const userEmail = decodedToken.email;
-    console.log(userEmail);
+  
 
     try {
       const response = await fetch(`http://localhost:3000/api/v1/recepti/userItems/${userEmail}`, {
@@ -168,7 +166,7 @@ export default {
           'Authorization': 'Bearer ' + token
         },
         withCredentials: true
-      }).then(console.log("ne radi"));
+      })
       if (response.ok) {
         const data = await response.json();
         this.userItems = data;

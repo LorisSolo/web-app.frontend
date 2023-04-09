@@ -48,7 +48,6 @@ export default {
             try {
 
                 const token = Cookies.get('token')
-                console.log(Cookies.get('token'))
                 const decodedToken = VueJwtDecode.decode(token)
                 const userEmail = decodedToken.email;
                 

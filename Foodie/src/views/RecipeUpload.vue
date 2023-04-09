@@ -23,8 +23,6 @@ export default {
             const token = Cookies.get('token') 
             const decodedToken = VueJwtDecode.decode(token)
             const userEmail = decodedToken.email;
-            console.log(decodedToken)
-            console.log(userEmail) 
             let json = { "title": this.title, "description": this.description, "ingredients": this.ingredients.split(" "), userEmail: userEmail }
 
             await fetch('http://localhost:3000/api/v1/recepti/recipe', {

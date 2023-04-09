@@ -1,10 +1,10 @@
 <template>
-
     <form class="main-box">
         <h1>
-            Foodie
+            Ffood1e
         </h1>
         <div class="mb-3">
+            
             <input type="usernamname" class="form-control" id="username1" aria-describedby="emailHelp"
                 placeholder="username" style="width: 285px;" v-model="username">
 
@@ -25,11 +25,6 @@
 
         <button class="mojBatun"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
     </form>
-
-
-
-
-
 </template>
 
 <style scoped>
@@ -44,36 +39,43 @@ export default {
 
 
 
-    
-data() {
-    return {
-        username: "",
-        email: "",
-        password:""
-    }
-    
-},
- 
 
-methods: {
-    
-    async dodajUsera() {
-        
-        let json = { "username": this.username, "email": this.email, "password":this.password }
+    data() {
+        return {
+            username: "",
+            email: "",
+            password: "",
+            
+        }
 
-        await fetch('http://localhost:3000/api/v1/auth/register', {
-            method: 'POST', 
-            body: JSON.stringify(json),
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8',
-            },
-        }).then(res => res.json()).then( data => {
+    },
+
+
+    methods: {
+
+        async dodajUsera() {
+
+            let json = { "username": this.username, "email": this.email, "password": this.password }
+
+            await fetch('http://localhost:3000/api/v1/auth/register', {
+                method: 'POST',
+                body: JSON.stringify(json),
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                },
+            }).then(res => res.json()).then(data => {
                 this.$router.push('/login')
-                console.log(data)}).catch((err) => {console.log(err)});
-        
-        
+                console.log(data)
+            }).catch((err) => {
+               if (err){
+                console.log(err);
+                
+               } 
+            });
+
+
+        }
     }
-}
 
 }
 
