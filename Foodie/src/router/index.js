@@ -11,38 +11,38 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: 'https://web-app-frontend.onrender.com/',
       name: 'home',
       component: Home,
       meta: { requiresAuth: true }
     },
     {
-      path: '/upload',
+      path: 'https://web-app-frontend.onrender.com/upload',
       name: 'upload',
       component: RecipeUpload,
      meta: { requiresAuth: true }
     },
     {
-      path: '/login',
+      path: 'https://web-app-frontend.onrender.com/login',
       name: 'login',
       component: Log_in
     
     },
     {
-      path: '/signup',
+      path: 'https://web-app-frontend.onrender.com/signup',
       name: 'signup',
       component: Sign_up
     
     },
     {
-      path: '/myFridge',
+      path: 'https://web-app-frontend.onrender.com/myFridge',
       name: 'myFridge',
       component: userItems,
       meta: { requiresAuth: true }
     
     },
     {
-      path: '/recipe',
+      path: 'https://web-app-frontend.onrender.com/recipe',
       name: 'recipe',
       component: Recipe,
       meta: { requiresAuth: true }
