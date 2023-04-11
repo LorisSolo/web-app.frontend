@@ -18,7 +18,7 @@
 
     </div>
 
-    <button  @click="login" class="btn btn-primary"> Log in </button>
+    <button @click="login" class="btn btn-primary"> Log in </button>
 
 
     <button class="mojBatun"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     async login() {
-      console.log("gumb je stisnut")
       try {
         const response = await fetch("https://dwa-backend.onrender.com/api/auth/login", {
           method: "POST",
