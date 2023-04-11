@@ -18,7 +18,7 @@
           <a class="myBtn" @click="saveButtonValue('riba')">riba</a>
           <a class="myBtn" @click="saveButtonValue('piletina')">piletina</a>
           <a class="myBtn" @click="saveButtonValue('rezanci')">rezanci</a>
-          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+
 
         </div>
 
@@ -51,9 +51,7 @@
           <a class="myBtn" @click="saveButtonValue('sol')">sol</a>
           <a class="myBtn" @click="saveButtonValue('papar')">papar</a>
           <a class="myBtn" @click="saveButtonValue('vegeta')">vegeta</a>
-          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
-          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
-          <a class="myBtn" @click="saveButtonValue('banana')">Button 1</a>
+
 
         </div>
       </div>
@@ -109,7 +107,7 @@ export default {
   
 
       try {
-        await fetch(`http://localhost:3000/api/v1/recepti/user/${userEmail}`, {
+        await fetch(`http://localhost:3000/api/users/${userEmail}`, {
           method: 'PATCH',
           credentials: 'include',
           headers: {
@@ -129,7 +127,7 @@ export default {
       const userEmail = decodedToken.email;
 
       try {
-        await fetch(`http://localhost:3000/api/v1/recepti/item/${userEmail}/${item}`, {
+        await fetch(`http://localhost:3000/api/users/item/${userEmail}/${item}`, {
           method: 'DELETE',
           credentials: 'include',
           headers: {
@@ -159,7 +157,7 @@ export default {
   
 
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/recepti/userItems/${userEmail}`, {
+      const response = await fetch(`http://localhost:3000/api/users/items/${userEmail}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -177,7 +175,7 @@ export default {
       console.error('Error:', error);
     }
 
-    const otherResponse = await fetch(`http://localhost:3000/api/v1/recepti/userRecipe/${userEmail}`, {
+    const otherResponse = await fetch(`http://localhost:3000/api/users/recipes/${userEmail}`, {
       method: 'GET',
       credentials: 'include',
       headers: {

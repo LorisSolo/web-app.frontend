@@ -25,7 +25,7 @@ export default {
             const userEmail = decodedToken.email;
             let json = { "title": this.title, "description": this.description, "ingredients": this.ingredients.split(" "), userEmail: userEmail }
 
-            await fetch('http://localhost:3000/api/v1/recepti/recipe', {
+            await fetch('http://localhost:3000/api/recipes', {
                 method: 'POST',
                 body: JSON.stringify(json),
                 

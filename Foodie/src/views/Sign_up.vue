@@ -57,7 +57,7 @@ export default {
 
             let json = { "username": this.username, "email": this.email, "password": this.password }
 
-            await fetch('http://localhost:3000/api/v1/auth/register', {
+            await fetch('http://localhost:3000/api/auth/register', {
                 method: 'POST',
                 body: JSON.stringify(json),
                 headers: {
