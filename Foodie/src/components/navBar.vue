@@ -24,10 +24,10 @@
                           <RouterLink class ="nav-link active" to="/myFridge">Moj frižider</RouterLink>
                       </li>
                       </ul>
-                  <form class="d-flex" role="search">
+                  <div class="d-flex" role="search">
                      
-                      <a class="myBtn" type="submit" @click="logout" >Logout</a>
-                  </form>
+                      <a class="myBtn" @click="logout" >Logout</a>
+                  </div>
               </div>
           </div>
       </nav>
