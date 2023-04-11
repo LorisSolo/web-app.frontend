@@ -42,7 +42,9 @@
       name: "navBar",
     
     methods: {
+      
       async logout() {
+        this.$cookies.set("token", '');
       try {
         const response = await fetch('http://localhost:3000/api/auth/logout', {
           method: 'POST',
