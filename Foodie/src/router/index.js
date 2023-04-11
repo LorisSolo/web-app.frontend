@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '../views/Home.vue'
 import RecipeUpload from '../views/RecipeUpload.vue'
 import Log_in from '../views/Log_in.vue'
@@ -8,41 +8,41 @@ import Recipe from '../views/Recipe.vue'
 import { isAuthenticated } from './helpers'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
-      path: 'https://web-app-frontend.onrender.com/',
+      path: '/',
       name: 'home',
       component: Home,
       meta: { requiresAuth: true }
     },
     {
-      path: 'https://web-app-frontend.onrender.com/upload',
+      path: '/upload',
       name: 'upload',
       component: RecipeUpload,
      meta: { requiresAuth: true }
     },
     {
-      path: 'https://web-app-frontend.onrender.com/login',
+      path: '/login',
       name: 'login',
       component: Log_in
     
     },
     {
-      path: 'https://web-app-frontend.onrender.com/signup',
+      path: '/signup',
       name: 'signup',
       component: Sign_up
     
     },
     {
-      path: 'https://web-app-frontend.onrender.com/myFridge',
+      path: '/myFridge',
       name: 'myFridge',
       component: userItems,
       meta: { requiresAuth: true }
     
     },
     {
-      path: 'https://web-app-frontend.onrender.com/recipe',
+      path: '/recipe',
       name: 'recipe',
       component: Recipe,
       meta: { requiresAuth: true }
