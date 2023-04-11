@@ -6,8 +6,6 @@ import VueCookies from 'vue-cookies';
 
 
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
 
 const app = createApp(App)
 app.use(VueCookies);
