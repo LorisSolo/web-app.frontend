@@ -64,7 +64,7 @@ export default {
             let myFile = fileField.files[0];
             imageData.append("picture", myFile);
 
-            await fetch(`http://localhost:3000/api/recipes/editPicture/${this.id}`, {
+            await fetch(`https://dwa-backend.onrender.com/api/recipes/editPicture/${this.id}`, {
                 method: 'PATCH', credentials: 'include',
                 body: imageData,
                 headers: {

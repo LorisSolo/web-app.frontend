@@ -51,7 +51,7 @@ export default {
                 const decodedToken = VueJwtDecode.decode(token)
                 const userEmail = decodedToken.email;
                 
-                const response = await fetch('http://localhost:3000/api/recipes', {
+                const response = await fetch('https://dwa-backend.onrender.com/api/recipes', {
                     method: 'GET',
                     credentials: 'include',
                     headers: {

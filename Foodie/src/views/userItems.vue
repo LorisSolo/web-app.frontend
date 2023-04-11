@@ -107,7 +107,7 @@ export default {
   
 
       try {
-        await fetch(`http://localhost:3000/api/users/${userEmail}`, {
+        await fetch(`https://dwa-backend.onrender.com/api/users/${userEmail}`, {
           method: 'PATCH',
           credentials: 'include',
           headers: {
@@ -127,7 +127,7 @@ export default {
       const userEmail = decodedToken.email;
 
       try {
-        await fetch(`http://localhost:3000/api/users/item/${userEmail}/${item}`, {
+        await fetch(`https://dwa-backend.onrender.com/api/users/item/${userEmail}/${item}`, {
           method: 'DELETE',
           credentials: 'include',
           headers: {
@@ -157,7 +157,7 @@ export default {
   
 
     try {
-      const response = await fetch(`http://localhost:3000/api/users/items/${userEmail}`, {
+      const response = await fetch(`https://dwa-backend.onrender.com/api/users/items/${userEmail}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -175,7 +175,7 @@ export default {
       console.error('Error:', error);
     }
 
-    const otherResponse = await fetch(`http://localhost:3000/api/users/recipes/${userEmail}`, {
+    const otherResponse = await fetch(`https://dwa-backend.onrender.com/api/users/recipes/${userEmail}`, {
       method: 'GET',
       credentials: 'include',
       headers: {
