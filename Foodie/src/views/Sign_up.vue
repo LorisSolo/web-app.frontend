@@ -4,16 +4,16 @@
             Ffoodie
         </h1>
         <div class="uploadInfo">
-      <input placeholder="Username" v-model="username">
+      <input type="text" placeholder="Username" v-model="username">
       
     </div>
         <div class="uploadInfo">
-      <input placeholder="Email address" v-model="email">
+      <input type="email" placeholder="Email address" v-model="email">
       
     </div>
     <div class="uploadInfo">
 
-      <input placeholder="Password"  v-model="password">
+      <input type="password" placeholder="Password"  v-model="password">
 
     </div>
         

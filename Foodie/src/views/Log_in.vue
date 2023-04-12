@@ -4,16 +4,16 @@
       Ffood1e
     </h1>
     <div class="uploadInfo">
-      <input placeholder="Email address" v-model="email">
-      
+      <input type="email" placeholder="Email address" v-model="email">
+
     </div>
     <div class="uploadInfo">
 
-      <input placeholder="Password"  v-model="password">
+      <input type="password" placeholder="Password" v-model="password">
 
     </div>
 
-    <a  @click="login" class="btnLogin"> Log in </a>
+    <a @click="login" class="btnLogin"> Log in </a>
 
 
     <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
