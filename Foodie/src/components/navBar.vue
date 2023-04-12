@@ -46,7 +46,7 @@
     methods: {
       
       async logout() {
-
+        this.$cookies.set("token", '');
       try {
         const response = await fetch('https://dwa-backend.onrender.com/api/auth/logout', {
           method: 'POST',

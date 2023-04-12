@@ -58,7 +58,7 @@ export default {
         });
         const data = await response.json();
         if (response.ok) {
-          //document.cookie = `token=${data.token}; max-age=${7 * 24 * 60 * 60}; secure; path=/`;
+          document.cookie = `token=${data.token}; max-age=${7 * 24 * 60 * 60}; secure; path=/`;
           this.$router.push("/");
         } else {
           if (isAuthenticated) this.authFail = true
