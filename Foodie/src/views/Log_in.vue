@@ -1,28 +1,23 @@
 <template>
-  <div class="main-box">
+  <form class="main-box">
     <h1>
       Ffood1e
     </h1>
-    <div class="mb-3">
-      <div class="alert alert-danger mt-4 py-1" role="alert" v-if="authFail">
-        Incorrect email or password
-      </div>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Email address" v-model="email">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="uploadInfo">
+      <input placeholder="Email address" v-model="email">
+      
     </div>
-    <div class="mb-3">
+    <div class="uploadInfo">
 
-      <input type="password" class="form-control" id="exampleInputPassword1" style="width: 285px" placeholder="Password"
-        v-model="password">
+      <input placeholder="Password"  v-model="password">
 
     </div>
 
-    <button @click="login" class="btn btn-primary"> Log in </button>
+    <a  @click="login" class="btnLogin"> Log in </a>
 
 
-    <button class="mojBatun"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
-  </div>
+    <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
+  </form>
 
   <div class="box">
     <lable>Don't have an account?
@@ -63,7 +58,7 @@ export default {
         });
         const data = await response.json();
         if (response.ok) {
-          document.cookie = `token=${data.token}; max-age=${7 * 24 * 60 * 60}; secure; path=/`;
+          //document.cookie = `token=${data.token}; max-age=${7 * 24 * 60 * 60}; secure; path=/`;
           this.$router.push("/");
         } else {
           if (isAuthenticated) this.authFail = true

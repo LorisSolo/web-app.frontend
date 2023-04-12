@@ -1,30 +1,27 @@
 <template>
-    <form class="main-box">
+      <div class="main-box">
         <h1>
-            Ffood1e
+            Ffoodie
         </h1>
-        <div class="mb-3">
-            
-            <input type="usernamname" class="form-control" id="username1" aria-describedby="emailHelp"
-                placeholder="username" style="width: 285px;" v-model="username">
+        <div class="uploadInfo">
+      <input placeholder="Username" v-model="username">
+      
+    </div>
+        <div class="uploadInfo">
+      <input placeholder="Email address" v-model="email">
+      
+    </div>
+    <div class="uploadInfo">
 
-        </div>
-        <div class="mb-3">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Email address" v-model="email">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
+      <input placeholder="Password"  v-model="password">
 
-            <input type="password" class="form-control" id="exampleInputPassword1" style="width: 285px"
-                placeholder="Password" v-model="password">
+    </div>
+        
 
-        </div>
+        <a  class="btnLogin" @click="dodajUsera()">Sign up</a>
 
-        <a type="submit" class="btn btn-primary" @click="dodajUsera()">Sign up</a>
-
-        <button class="mojBatun"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
-    </form>
+        <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
+</div>
 </template>
 
 <style scoped>

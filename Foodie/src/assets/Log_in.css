@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&display=swap');
 .main-box{
     background-color:white;
     width: 350px;
@@ -37,20 +38,39 @@
 h1{
     margin-bottom: 10px;
     margin-bottom: 50px;
+    font-family: 'Edu NSW ACT Foundation', cursive;
 }
-.btn-primary{
-    background-color: #47afff;
-    width: 285px;
-    margin-top: 20px;
-}
-.mojBatun{
-    border: none;
-    background-color:rgba(0, 0, 0,0.01);
-    margin-top: 50px;
-    
-}
+
 img{
     height: 20px;
     width: 20px;
     
+}
+.btnLogin{
+    cursor: pointer;
+    background-color: #47afff;
+    width: 285px;
+    margin-top: 20px;
+    padding: 5px;
+    height: 20px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.uploadInfo input {
+    margin-top: 25px;
+    padding: 5px;
+    height: 20px;
+    width: 275px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.btnFacebook{
+    cursor: pointer;
+    border: none;
+    background-color:rgba(0, 0, 0,0.01);
+    text-decoration: none;
+    margin-top: 30px;
 }
