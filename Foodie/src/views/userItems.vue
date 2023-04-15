@@ -25,7 +25,7 @@
       </div>
 
       <div class="category-card">
-        <h1>povrće</h1>
+        <h1>Povrće</h1>
 
         <div class="buttons">
           <a class="myBtn" @click="saveButtonValue('špinat')">špinat</a>
