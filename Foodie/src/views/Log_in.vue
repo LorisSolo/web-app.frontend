@@ -1,33 +1,35 @@
 <template>
-  <form class="main-box">
-    <h1>
-      Ffood1e
-    </h1>
+  <div class="bcColor">
+    <div class="main-box">
+      <h1>
+        Ffood1e
+      </h1>
 
-    <div style="color: red;" v-if="authFail">
-      Incorrect email or password
+      <div style="color: red;" v-if="authFail">
+        Incorrect email or password
+      </div>
+      <div class="uploadInfo">
+        <input type="email" placeholder="Email address" v-model="email">
+
+      </div>
+      <div class="uploadInfo">
+
+        <input type="password" placeholder="Password" v-model="password">
+
+      </div>
+
+      <a @click="login" class="btnLogin"> Log in </a>
+
+
+      <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
     </div>
-    <div class="uploadInfo">
-      <input type="email" placeholder="Email address" v-model="email">
+
+    <div class="box">
+      <lable>Don't have an account?
+        <RouterLink to="/signup">Sign_up</RouterLink>
+      </lable>
 
     </div>
-    <div class="uploadInfo">
-
-      <input type="password" placeholder="Password" v-model="password">
-
-    </div>
-
-    <a @click="login" class="btnLogin"> Log in </a>
-
-
-    <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
-  </form>
-
-  <div class="box">
-    <lable>Don't have an account?
-      <RouterLink to="/signup">Sign_up</RouterLink>
-    </lable>
-
   </div>
 </template>
 

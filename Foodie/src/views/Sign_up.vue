@@ -1,27 +1,29 @@
 <template>
-      <div class="main-box">
-        <h1>
-            Ffoodie
-        </h1>
-        <div class="uploadInfo">
-      <input type="text" placeholder="Username" v-model="username">
-      
+    <div class="bcColor">
+        <div class="main-box">
+            <h1>
+                Ffoodie
+            </h1>
+            <div class="uploadInfo">
+                <input type="text" placeholder="Username" v-model="username">
+
+            </div>
+            <div class="uploadInfo">
+                <input type="email" placeholder="Email address" v-model="email">
+
+            </div>
+            <div class="uploadInfo">
+
+                <input type="password" placeholder="Password" v-model="password">
+
+            </div>
+
+
+            <a class="btnLogin" @click="dodajUsera()">Sign up</a>
+
+            <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
+        </div>
     </div>
-        <div class="uploadInfo">
-      <input type="email" placeholder="Email address" v-model="email">
-      
-    </div>
-    <div class="uploadInfo">
-
-      <input type="password" placeholder="Password"  v-model="password">
-
-    </div>
-        
-
-        <a  class="btnLogin" @click="dodajUsera()">Sign up</a>
-
-        <button class="btnFacebook"><img src="@/assets/slike/facebook.png">Log in with facebook</button>
-</div>
 </template>
 
 <style scoped>
@@ -42,7 +44,7 @@ export default {
             username: "",
             email: "",
             password: "",
-            
+
         }
 
     },
@@ -64,10 +66,10 @@ export default {
                 this.$router.push('/login')
                 console.log(data)
             }).catch((err) => {
-               if (err){
-                console.log(err);
-                
-               } 
+                if (err) {
+                    console.log(err);
+
+                }
             });
 
 
