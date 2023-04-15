@@ -3,6 +3,10 @@
     <h1>
       Ffood1e
     </h1>
+
+    <div style="color: red;" v-if="authFail">
+      Incorrect email or password
+    </div>
     <div class="uploadInfo">
       <input type="email" placeholder="Email address" v-model="email">
 
