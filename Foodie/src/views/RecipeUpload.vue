@@ -36,7 +36,7 @@ export default {
                 },
                 withCredentials: true
                 
-            })
+            }).then (this.$router.push("/"));
 
             } catch (error) {
                 console.error('Error:', error);
