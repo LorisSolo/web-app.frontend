@@ -27,3 +27,12 @@ npm run dev
 ```sh
 npm run build
 ```
+## Design
+![image](https://github.com/LorisSolo/web-app.frontend/assets/115341764/e1bc68df-a771-4915-b427-e66579a9abda)
+![image](https://github.com/LorisSolo/web-app.frontend/assets/115341764/b46ba2d9-69dd-4b81-bcd0-4733b9ef4356)
+![image](https://github.com/LorisSolo/web-app.frontend/assets/115341764/309cc590-6ba8-4813-9bb7-aecd7be02fcb)
+![image](https://github.com/LorisSolo/web-app.frontend/assets/115341764/1de0a19c-8085-4161-a7ff-a201bf1bd191)
+
+
+
+
